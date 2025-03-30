@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore context-namespace="Products" namespace="Products" p1:name="cnProducts" p1:Guid="295b35bd-2f1c-4aed-b06d-d6420aa28894" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="Product" entity-set="Products" table="Products" schema="dbo" p1:Guid="86c9f29a-1de7-455c-869a-3194974cb241">
+    <id name="ProductID" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="a80ecda0-fd32-4eb6-8398-c50d8f12b10d">
+      <column name="ProductID" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="ProductName" type="String" p1:nullable="True" p1:ValidateMaxLength="40" p1:ValidateRequired="false" p1:Guid="f1f4967b-4601-4edd-a414-d80aa0c1de08">
+      <column name="ProductName" not-null="False" length="40" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="CategoryID" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="c1c058cc-feca-4381-85c1-36034975cf43">
+      <column name="CategoryID" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="UnitPrice" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="f085056a-2a61-4d35-ad31-27bbfaecba1a">
+      <column name="UnitPrice" not-null="False" precision="19" scale="4" sql-type="money" p1:unicode="False" />
+    </property>
+    <property name="UnitsInStock" type="Int16" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9680750c-db91-4bf0-a277-6b4fa7c7b8f8">
+      <column name="UnitsInStock" not-null="False" precision="5" scale="0" sql-type="smallint" p1:unicode="False" />
+    </property>
+    <property name="Discontinued" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="a331c138-f8dd-48a8-98b2-b1383a593de7">
+      <column name="Discontinued" not-null="False" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+</efcore>

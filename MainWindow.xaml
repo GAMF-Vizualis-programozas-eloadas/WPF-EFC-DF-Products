@@ -1,0 +1,56 @@
+﻿<Window x:Class="WPF_EFC_DF_Products.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_EFC_DF_Products"
+        mc:Ignorable="d"
+        Title="Products" Height="370" Width="400" Closing="wndClosing">
+	<StackPanel>
+		<Menu>
+			<MenuItem Header="Exit" Click="miExit_Click" />
+			<MenuItem Header="Products" Click="miProducts_Click"/>
+		</Menu>
+		<Grid x:Name="grProduct" DataContext="{Binding}" Visibility="Collapsed" >
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="125"/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Search product name</Label>
+			<TextBox x:Name="tbSearchProductName" Grid.Row="0" Grid.Column="1" Margin="10" TextChanged="tbSearchProductName_TextChanged"/>
+			<Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Product name</Label>
+			<ComboBox x:Name="cbProductname" 
+								Grid.Row="1" Grid.Column="1" Margin="10" 
+								ItemsSource="{Binding}"
+                DisplayMemberPath="ProductName" 
+								SelectedValuePath="ProductName" 
+								IsSynchronizedWithCurrentItem="True"
+								/>
+
+			<TextBox x:Name="tbProductName" Text="{Binding Path=ProductName}"  Grid.Row="2" Grid.Column="1" Margin="10"/>
+			<Label Grid.Row="3" Grid.Column="0" VerticalAlignment="Center">Category ID</Label>
+			<TextBox x:Name="tbCategoryID" Text="{Binding Path=CategoryID}" Grid.Row="3" Grid.Column="1" Margin="10"/>
+			<Label Grid.Row="4" Grid.Column="0" VerticalAlignment="Center">Unit price</Label>
+			<TextBox x:Name="tbUnitPrice" Text="{Binding Path=UnitPrice}" Grid.Row="4" Grid.Column="1" Margin="10"/>
+			<Label Grid.Row="5" Grid.Column="0" VerticalAlignment="Center">Units in stock</Label>
+			<TextBox x:Name="tbUnitsInStock" Text="{Binding Path=UnitsInStock}" Grid.Row="5" Grid.Column="1" Margin="10"/>
+			<Label Grid.Row="6" Grid.Column="0" VerticalAlignment="Center">Discontinued</Label>
+			<TextBox x:Name="tbDiscontinued" Text="{Binding Path=Discontinued}" Grid.Row="6" Grid.Column="1" Margin="10"/>
+			<StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+				<Button Content="Delete product" Click="miDelete_Click" Margin="10"/>
+				<Button Content="Save product" Click="miSaveProduct_Click" Margin="10"/>
+			</StackPanel>
+			
+		</Grid>
+	</StackPanel>
+</Window>
