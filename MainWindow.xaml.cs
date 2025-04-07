@@ -71,7 +71,7 @@ namespace WPF_EFC_DF_Products
 
 		private void miDelete_Click(object sender, RoutedEventArgs e)
 		{
-			var x = cbProductname.SelectedItem as Products.Product;
+			if (cbProductname.SelectedItem is not Products.Product x) return;
 			cn.Products.Remove(x);
 			cn.SaveChanges();
 			MessageBox.Show("Product removed");
